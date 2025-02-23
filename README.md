@@ -1,4 +1,4 @@
-### Informações sobre este projetos
+### Informações sobre o projeto
 
 Esse projeto é o bônus para a segunda fase do processo seletivo para Qualidade de Software da **DirectOn Tecnologia**.
 
@@ -23,19 +23,19 @@ Esse projeto é o bônus para a segunda fase do processo seletivo para Qualidade
 
 **- DIRECTON > .github > workflows > main.yml** = este arquivo define um workflow do GitHub Actions que automatiza a execução de testes end-to-end (E2E) utilizando o Cypress. O objetivo principal é garantir que as funcionalidades do projeto sejam validadas automaticamente em um ambiente controlado sempre que houver alterações no código.
 
-***Observação:*** nem todos os testes seriam indicados entrar para um workflow. Indicaria colocar apenas os testes de maior e de moderada frequência de execução, como por exemplo: **"Tentativa de login com email que não está na base"**, **"Tentativa de login com email fora do padrão"**, **"Tentativa de login com senha não cadastrada"** e **"Login com dados válidos"**, definindo um "Smoke Test" (*). Os demais testes seriam realizados isoladamente (e de forma automática) quando houvese ajuste em seus componetes ou comportamentos.
+***Observação:*** nem todos os testes seriam indicados entrar para um workflow. Indicaria colocar apenas os testes de maior e de moderada frequência de execução, como por exemplo: **"Tentativa de login com email que não está na base"**, **"Tentativa de login com email fora do padrão"**, **"Tentativa de login com senha não cadastrada"** e **"Login com dados válidos"**, definindo um "Smoke Test" (*). Os demais testes seriam realizados isoladamente (e de forma automática) quando houvesse ajuste em seus componentes ou comportamentos.
 
 **- DIRECTON > cypress > dados > dados.json** = contém as **credenciais válidas de usuários** que são utilizadas nos testes automatizados. Nesse projeto, ele armazena dados de login (e-mail e senha) necessários para autenticar usuários durante a execução dos testes.
 
-***Observação:*** para garantir segurança das informações (como credenciais de usuário), é recomendável armazenar esses dados em um arquivo separado e adicioná-lo ao ".gitignore", evitando que dados sensíveis sejam commitados em repositórios públicos.
+***Observação:*** para garantir segurança das informações (como credenciais de usuário), é recomendável armazenar esses dados em um arquivo separado e adicioná-lo ao ".gitignore", evitando que dados sensíveis sejam comitados em repositórios públicos.
 
-***Atenção!!!*** Nesse projeto, como as crednciasi são de uma base teste, optei não colocar o arquido "dados.json" no ".gitignore".
+***Atenção!!!*** Nesse projeto, como as credenciais são de uma base teste, optei por não colocar o arquivo "dados.json" no ".gitignore".
 
 **- DIRECTON > cypress > e2e > login.cy.js** = contém os testes automatizados para a tela de login da aplicação Youk utilizando o Cypress.
 
 ***Observação:*** nesse arquivo, os dados de acesso (email e senha) são importados de um arquivo externo (dados.json) para garantir reutilização e segurança.
 
-**- DIRECTON > cypress > support > e2e.js** = define um comando personalizado no Cypress chamado logoff, que realiza o logout da aplicação. Esse comando é reutilizável e simplifica a execução de testes que exigem deslogar após determinadas ações.
+**- DIRECTON > cypress > support > e2e.js** = define um comando personalizado no Cypress chamado logoff, que realiza o logout da aplicação. Esse comando é reutilizável e simplifica a execução de testes que exigem sair do sistema após determinadas ações.
 
 ***Observação:*** a função logoff foi criada como um comando personalizado do Cypress e colocada fora do arquivo principal de testes porque, embora não faça parte do escopo principal dos testes, é essencial para garantir que cada teste comece em um estado limpo, já que, pelo que percebi, as credenciais da aplicação não expiram.
 
@@ -47,7 +47,7 @@ Esse projeto é o bônus para a segunda fase do processo seletivo para Qualidade
 2 - **"video: false"**: desabilita a gravação de vídeos durante a execução dos testes;
 3 - **"baseUrl: 'https://youk-test.web.app'**: define a URL base para os testes simplificando a escrita de cy.visit() e facilita a manutenção, especialmente em projetos com URLs bem definidas.
 
-***Atenção!*** Para gerar os sreenshots (em caso de teste falho) e os videos, ajuste a propriedade "false" para "true" nos respectivos parâmetros ou copie do código abaixo (para gerar os dois elementos).
+***Atenção!*** Para gerar os sreenshots (em caso de teste falho) e os vídeos, ajuste a propriedade "false" para "true" nos respectivos parâmetros ou copie do código abaixo (para gerar os dois elementos).
 
 
 ```javascript
